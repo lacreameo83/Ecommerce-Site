@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.animate {
+  background-image: url("https://buffer.com/library/content/images/size/w1200/2023/10/free-images.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  animation-name: example;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes example {
+  0% {
+    background-image: url("https://img.freepik.com/free-photo/abstract-autumn-beauty-multi-colored-leaf-vein-pattern-generated-by-ai_188544-9871.jpg");
+  }
+  25% {
+    background-image: url("https://pixlr.com/images/index/ai-image-generator-one.webp");
+  }
+  50% {
+    background-image: url("https://imgv3.fotor.com/images/slider-image/A-clear-close-up-photo-of-a-woman.jpg");
+  }
+  75% {
+    background-image: url("https://d38b044pevnwc9.cloudfront.net/cutout-nuxt/enhancer/3.jpg");
+  }
+  100% {
+    background-image: url("https://imgv3.fotor.com/images/slider-image/Female-portrait-picture-enhanced-with-better-clarity-and-higher-quality-using-Fotors-free-online-AI-photo-enhancer.jpg");
+  }
+}
+
+.show:hover > .hide {
+  opacity: 1;
+  /* width: fit-content; */
+}
+
+.outletContainer {
+  background-color: rgb(237, 237, 241);
+  /* background-image: url(''); */
+}
+
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 10px;
+  background: var(--red);
+  transform-origin: 0%;
+}
