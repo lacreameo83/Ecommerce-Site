@@ -14,25 +14,36 @@ function Home() {
   };
 
   return (
-    <div className=" flex items-center   md:justify-between px-[50px] sticky h-[10vh]  border-b-[1px]">
-      <img
-        className="w-[80px]"
-        src="https://capricathemes.com/opencart/OPC10/OPC100238/image/catalog/logo.png"
-      />
+    <div className=" flex items-center     md:justify-between px-[50px] h-[10vh]  border-b-[1px]">
+      <div onClick={handleIsSideDisplay} className="relative md:hidden">
+        <MdFormatListBulleted className="text-blue-800 mx-1" />
+        {isSideDisplay && (
+          <div className="absolute w-[40vw] h-[12vh]  border p-[10px] text-[20px] bg-stone-100 items-center">
+            <Link to="/login">
+              <p>Register</p>
+            </Link>
+            <p>Log In </p>
+          </div>
+        )}
+      </div>
+
+      <Link to="/">
+        <img
+          className="w-[20px] md:w-[80px]"
+          src="https://capricathemes.com/opencart/OPC10/OPC100238/image/catalog/logo.png"
+        />
+      </Link>
       <div>
-        <div className="flex inline">
+        <div className="flex ">
           <input
-            className="w-[80%] md:border rounded-l-2xl w-[400px] p-[5px] text-start outline-blue-100"
+            className="w-[150px] p-[7px] border md:w-[400px] rounded-l-2xl   text-start outline-blue-100"
             type="text"
             placeholder="   Search products Here"
           />
           <button className="bg-blue-600 border w-[100px] p-[5px] text-star text-stone-100 rounded-r-2xl">
             Search
           </button>
-          <MdFormatListBulleted
-            onClick={handleIsSideDisplay}
-            className="text-blue-600 w-[100px] md:hidden "
-          />
+
           <div className="relative md:hidden">
             <IoCartOutline className="text-[30px]" />
             <div
@@ -42,18 +53,9 @@ function Home() {
               <p>{cart.length}</p>
             </div>
           </div>
-          {isSideDisplay && (
-            <div className="absolute right-[20px] border p-[10px] text-[20px] top-[10vh] bg-stone-200 items-center">
-              <Link to="/login">
-                <p>Register</p>
-              </Link>
-              <p>Log In </p>
-            </div>
-          )}
         </div>
       </div>
       {/* --------------side bar--------------------------------------- */}
-
       <div className=" hidden md:flex h-full py-[15px]  items-center gap-[20px]">
         <div className=" flex h-full gap-[5px] items-center border-r-[1px] border-stone-400 border-w-[3px] px-[10px]">
           <GrUserManager className="text-[30px]" />

@@ -8,11 +8,35 @@ import { GlobalContext } from "../../Context/GlobalContext";
 function ProductTemplate({ product }) {
   const { cart, setCart } = useContext(GlobalContext);
   const { id, title, image, price } = product;
+
+  const obj = {
+    ...product,
+    quantity: 1,
+    totalPrice: product.price,
+  };
+
   // notification
   const [isclicked, setIsClicked] = useState(false);
 
   const addCart = (product) => {
-    setCart([...cart, product]);
+    const check = cart.some((el) => el.id === product.id);
+    console.log(cart);
+
+    // console.log(check);
+
+    if (cart.length > 0 && check) {
+      const result = cart.map((items) => {
+        if (items.id === product.id) {
+          items.quantity += 1;
+          items.totalPrice = items.price * items.quantity;
+          return items;
+        }
+        return items;
+      });
+      setCart(result);
+    } else {
+      setCart([...cart, product]);
+    }
   };
 
   return (
@@ -29,7 +53,7 @@ function ProductTemplate({ product }) {
           <div className="absolute top-0 right-1 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:top-3">
             <button>
               <div
-                onClick={() => addCart(product)}
+                onClick={() => addCart(obj)}
                 className="flex justify-center items-center text-white w-7 h-7 rounded-[100%] bg-blue-500 "
               >
                 <CiCirclePlus className="text-3xl" />

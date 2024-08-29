@@ -1,16 +1,17 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 // import { DevTool } from "@hookform/devtools";
 import { useNavigate } from "react-router-dom";
 import { formSchema } from "./Validation/LoginValidation";
+import { GlobalContext } from "../../../Context/GlobalContext";
 
 function Login() {
   const form = useForm({
     resolver: zodResolver(formSchema),
   });
 
-  const [login, setLogin] = useState("Log In");
+  const { islogin, setisLogin } = useContext(GlobalContext);
   const navigate = useNavigate();
   const {
     register,
@@ -19,11 +20,11 @@ function Login() {
     formState: { errors },
   } = form;
   const sendToBackEnd = (data) => {
-    setLogin("Loading");
+    setisLogin("Loading");
     setTimeout(() => {
-      setLogin("Done");
-      setLogin(true);
-      setLogin(() => {
+      setisLogin("Done");
+      setisLogin(true);
+      setisLogin(() => {
         navigate("/");
       }, 2000);
     }, 3000);
@@ -119,7 +120,7 @@ function Login() {
             type="submit"
             className="bg-blue-600 rounded-xl text-stone-50 p-[5px] w-[80px]"
           >
-            {login}
+            {islogin}
           </button>
         </form>
       </div>

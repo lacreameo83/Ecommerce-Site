@@ -2,7 +2,6 @@ import React from "react";
 import { RxDropdownMenu } from "react-icons/rx";
 import { IoIosArrowDropdown } from "react-icons/io";
 import MainNav from "./MainNav";
-import SideBar from "../OutLet/SideBar";
 
 function Hotline() {
   return (
@@ -17,8 +16,6 @@ function Hotline() {
       <div>
         <MainNav />
       </div>
-
-      <SideBar />
     </div>
   );
 }

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function ShopNow() {
   return (
-    <div className="grid grid-cols-1 w-[100%] md:flex px-[50px] justify-between items-center h-[50vh]">
+    <div className="hidden grid grid-cols-1 w-[100%] md:flex px-[50px] justify-between items-center h-[50vh]">
       <div className="flex items-center h-[80%] bg-stone-100 w-[30vw] p-[20px] ">
         <div className="]">
           <p className="w-[15vh]">Special offer</p>

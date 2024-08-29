@@ -4,15 +4,19 @@ import {
   DisplayOutlet,
   FormPage,
   Registration,
+  Error,
+  PaymentDisplay,
+  CardDisplay,
 } from "./Pages/Index";
 import DispalyProduct from "./Components/OutLet/DispalyProduct";
-
+import ProtectedRoute from "./Utilities/ProtectectRoute";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <NavSectionDisplay />,
+    errorElement: <Error />,
     children: [
       {
         index: true,
@@ -31,6 +35,18 @@ const router = createBrowserRouter([
         element: <Registration />,
       },
     ],
+  },
+  {
+    path: "/payment",
+    element: <PaymentDisplay />,
+  },
+  {
+    path: "/card",
+    element: (
+      <ProtectedRoute>
+        <CardDisplay />
+      </ProtectedRoute>
+    ),
   },
 ]);
 

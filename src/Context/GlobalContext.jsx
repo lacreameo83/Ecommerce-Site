@@ -1,7 +1,7 @@
 import { createContext, useEffect, useState } from "react";
-export const GlobalContext = createContext(null);
 import axios from "axios";
-import ProductTemplate from "../Components/Template/ProductTemplate";
+
+export const GlobalContext = createContext(null);
 
 const GlobalContextProvider = ({ children }) => {
   // state for display product data to cart and fetching the data
@@ -15,9 +15,7 @@ const GlobalContextProvider = ({ children }) => {
   const handleisClose = () => {
     setIsOpen(!isOpen);
   };
-
-  
- 
+  const [islogin, setisLogin] = useState("Log In");
 
   //   fetching data
   const dataFetching = async () => {
@@ -28,7 +26,6 @@ const GlobalContextProvider = ({ children }) => {
       console.log(error.response);
     }
   };
-
 
   useEffect(() => {
     dataFetching();
@@ -44,7 +41,8 @@ const GlobalContextProvider = ({ children }) => {
         handleisClose,
         cart,
         setCart,
-        
+        islogin,
+        setisLogin,
       }}
     >
       {children}

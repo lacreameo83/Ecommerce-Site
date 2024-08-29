@@ -8,9 +8,9 @@ function MainNav() {
         <Link to="/">
           <h3>Home</h3>
         </Link>
-        <h3>About us</h3>
+        <h3>About </h3>
         <h3>contact</h3>
-        <h3>Manufacturer</h3>
+        <h3 className="hidden md:inline-block">Manufacturer</h3>
 
         <h3>Blogs</h3>
       </div>
